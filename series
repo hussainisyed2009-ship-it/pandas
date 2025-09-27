@@ -1,0 +1,34 @@
+import pandas as pd
+
+# series is a pandas one dimensional array, like a spreadsheet with 1 row of data
+
+data = [100, 103, 104]
+
+series = pd.Series(data, index=["a", "b", "c"]) # index = labels
+
+series.loc["c"] = 200 # change value at certain label
+
+print(series.iloc[0]) # locate by int value
+
+print(series.loc["a"]) # loc=location by label, returns value at that label
+print(series)
+
+# filter by value
+
+data = [100, 103, 104, 443, 552, 432, 123]
+series = pd.Series(data, index=["a", "b", "c", "d", "e", "f", "g"])
+
+print(series)
+print(series[series >= 200]) # filter by putting condition in []
+
+# using dictionaries
+
+calories = {"day 1": 1750, "day 2": 1845, "day 3": 2043, "day 4": 2343, "day 5": 2324} # must use dictionary
+
+series = pd.Series(calories)
+
+series.loc["day 3"] += 500 # adds value to that label
+
+print(series)
+print(series.loc["day 3"])
+print(series[series > 2000]) # filter

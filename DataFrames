@@ -1,0 +1,33 @@
+import pandas as pd
+
+# data frames are structures with rows and columns, 2D
+#           Similiar to an Excel spreadsheet
+
+data = {
+        "Name": ["syed", "mohammad", "taha", "hussaini"],
+        "Age": [10, 22, 34, 24]
+}
+
+df = pd.DataFrame(data, index=["Employee 1", "Employee 2", "Employee 3", "Employee 4"])
+
+print(df)
+
+print(df.loc["Employee 1"])
+print(df.iloc[1])
+
+# Add a new column
+
+df["Position"] = ["Cook", "N/A", "Cashier", "washer"] # [column]: [column: index 1, 2, 3, 4]
+
+print(df)
+
+# add a new row
+
+new_row = pd.DataFrame([{"Name": "Tehe", "Age": 28, "Position": "N/A"}, {"Name": "Tehe", "Age": 28, "Position": "N/A"}],
+                       index=["Employee 5", "Employee 6"]) # update index
+df = pd.concat([df, new_row]) # combines data frames, [old, new]
+
+
+
+
+print(df)
