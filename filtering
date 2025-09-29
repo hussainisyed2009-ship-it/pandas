@@ -1,0 +1,14 @@
+import pandas as pd
+
+df = pd.read_csv("pokemon.csv")
+
+fire = df[(df["Type 1"] == "Fire") |
+          (df["Type 2"] == "Flying")] # or
+
+fly = df[(df["Type 1"] == "Flying") &
+          (df["Type 2"] == "Water")] # and
+
+fast_poke = df[df["Speed"] >= 100] # condition
+
+print(fast_poke)
+print(fire)

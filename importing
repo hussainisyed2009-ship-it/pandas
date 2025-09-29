@@ -1,0 +1,10 @@
+import pandas as pd
+
+# importing csv and JSON files
+
+df = pd.read_csv("pokemon.csv") # how to import csv file, replace csv with Json if needed
+
+
+# print(df.to_string()) prints everything
+print(df)
+

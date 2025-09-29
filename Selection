@@ -1,0 +1,28 @@
+import pandas as pd
+
+df = pd.read_csv("pokemon.csv", index_col="Name") # index is moved to "Name" column
+
+
+# selection by column
+
+print(df.index) # column label needs to be in "[]", follow with .to_string() to print full list
+
+# select multiple columns
+
+print(df[["HP", "Attack", "Defense"]])
+
+# select by rows
+
+print(df.loc["Pikachu":"Ekans", ["Type 1"]])
+print(df.iloc[0:11:2, 0:3]) # 0:3  mean columns 1-3
+
+
+pokemon = input("Enter pokemon name--")
+
+while True:
+    try:
+        print(df.loc[pokemon])
+        break
+    except KeyError:
+        print(f"{pokemon} not found")
+        pokemon = input("Enter pokemon name--")
