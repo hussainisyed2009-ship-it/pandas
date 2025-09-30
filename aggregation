@@ -1,0 +1,35 @@
+import pandas as pd
+
+# sammurize data
+
+df = pd.read_csv("pokemon.csv")
+
+print(df.mean(numeric_only=True)) # telling pandas to find avg of only numerical columns
+
+print(df.sum(numeric_only=True))
+
+print(df.min(numeric_only=True))
+
+print(df.max(numeric_only=True))
+
+print(df.count())
+
+# single column
+
+print(df["HP"].mean(numeric_only=True))
+
+print(df["HP"].sum(numeric_only=True))
+
+print(df["HP"].min(numeric_only=True))
+
+print(df["HP"].max(numeric_only=True))
+
+print(f"total is {df['HP'].count()}")
+
+# group by
+
+group = df.groupby("Type 1")
+
+print(group["HP"].mean().round(2)) #.round(2) rounds\
+print(group["HP"].min().round(3))
+print(group["HP"].max().round(3))
